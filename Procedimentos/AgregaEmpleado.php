@@ -3,18 +3,19 @@ try{
     $server="localhost";
     $user="root";
     $pass="";
-    $db="whashiwaship4n";
-      
+    $db="washiwaship4m";
+      //Duda
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-       $idEmpleado =$_POST["idEmpleado"];
-    $rolemple=$_POST["rolEmpleado"]
+    $Flot=$_POST["Admin_flot"];
+    $Contrasena=$_POST[];
+
 
        $conexion = new mysqli($server, $user, $pass, $db);
        if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
     }
-
-       $query="INSERT INTO EMPLEADOS VALUES('$idEmpleado',"","","","",'$rolemple')";
+       //Agrgamos el empleado pero no le damos coontraseña para que se pueda loguear 
+       $query="INSERT INTO EMPLEADOS (ID_ADMIN,CONTRASENA,nombre_empleado,APELLIDO_PA,APELLIDO_MA) VALUES("","","","",'$rolemple')";
        $resultado = $conexion->query($query);
 
        //Y cheque mi cuarto y cheque mi cama y  nada 

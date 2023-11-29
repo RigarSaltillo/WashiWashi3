@@ -4,7 +4,7 @@ function obtenerclientes(){
     $server="localhost";
     $user="root";
     $pass="";
-    $db="whashiwaship4n";
+    $db="washiwaship4m";
       
        $conexion = new mysqli($server, $user, $pass, $db);
        if ($conexion->connect_error) {

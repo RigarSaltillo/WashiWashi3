@@ -3,7 +3,7 @@
 session_start();
 // Verifica si hay una sesión activa
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /WashiWashi/Login.php"); // Redirige a la página de inicio de sesión si no hay sesión activa
+    header("Location: /WashiWashi2/Login.php"); // Redirige a la página de inicio de sesión si no hay sesión activa
     exit();
 }
 ?>
@@ -14,7 +14,7 @@ if (!isset($_SESSION['usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Empleado_style.css">
+    <link rel="stylesheet" href="css/Empleado_style.css">
     <style>
         nav {
             background-color: #333;

@@ -15,7 +15,7 @@ $clientes = obtenerclientes();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Admin_style.css">
+    <link rel="stylesheet" href="css/Admin_style.css">
     <style>
         nav {
             background-color: #333;
