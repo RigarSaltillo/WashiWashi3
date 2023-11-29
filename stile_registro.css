@@ -1,0 +1,61 @@
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to right,rgb(116, 109, 109),red);
+
+}
+
+form{
+display: flex;
+flex-direction: column;
+background-color: white;
+text-align: center;
+padding: 20px 20px;
+box-shadow: 0 5px 10px rgba(73, 72, 62, 0.7);
+border-radius: 10%;
+}
+p{
+padding-top: 10px;
+padding-bottom: 10px;    
+}
+
+form .title{
+    color: rgb(62, 62, 94);
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+form label{
+font-size: 30px;
+}
+form label input{
+    outline: none;
+    border: none;
+    color: black;
+    border-bottom: solid 1px red;
+    font-size: 18px;
+}
+form button{
+    padding: 15px 20px;
+    font-size: 20px;
+    background-color: white;
+    border-color: red;
+    border-radius: 15%;
+}
+.mensajeError{
+    color: red;
+    margin-bottom: 13px;
+}
+.Rol{
+    font-size: 15px;
+    padding: 15px;
+}
