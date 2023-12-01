@@ -4,7 +4,11 @@
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .container{
     padding-top: 30px;
     padding-right: 10px;
@@ -17,20 +21,10 @@
 border-left: solid black;
 border-right: solid black;
 border-bottom: solid black;
-display: grid;
-grid-template-columns:1fr 1fr;
+display:flex;
 
 }
-.Clientes{
-padding-left: 10px;
-padding-top: 10px;
-padding-right: 10px;
-padding-bottom: 10px;
-border-top: solid black;
-border-left: solid black;
-border-right: solid black;
-border-bottom: solid black;
-}
+
 .formulario {
     display: none;
     position: fixed;
@@ -68,12 +62,7 @@ border-bottom: solid black;
     
 }
 
-.title{
-    border-top: solid black;
-border-left: solid black;
-border-right: solid black;
-border-bottom: solid black;
-}
+
 .Guardar{
     border-top: solid black;
     border-left: solid black;

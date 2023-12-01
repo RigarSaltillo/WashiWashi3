@@ -3,10 +3,10 @@ try{
     $server="localhost";
     $user="root";
     $pass="";
-    $db="whashiwaship4n";
+    $db="washiwaship4m";
       
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-       $idcli =$_POST["idcliente"];
+    $cli_s=$_POST["cli_s"];
     $ncliente = $_POST["nombrec"];
        $appc = $_POST["apellidopc"];
        $apmc = $_POST["apellidomc"];
@@ -17,12 +17,12 @@ try{
         die("Conexión fallida: " . $conexion->connect_error);
     }
 
-    $query = "UPDATE CLIENTE SET NOMBRE2='$ncliente', AP_PATERNO_CLI='$appc', AP_MATERNO_CLI='$apmc', NUMERO='$telefc' WHERE ID_CLIENTE='$idcli'";     
-    $resultado = $conexion->query($query);
+       $query="UPDATE CLIENTE  SET NOMBRE2='$ncliente',AP_PATERNO_CLI='$appc',AP_MATERNO_CLI='$apmc',NUMERO='$telefc' WHERE ID_CLIENTE=$cli_s";
+       $resultado = $conexion->query($query);
 
        //Y cheque mi cuarto y cheque mi cama y  nada 
        if ($resultado) {
-           header("Location: /WashiWashi/Admin_front.php");
+           header("Location: /WashiWashi3/Admin_front.php");
        } else {
            echo "Error en la ejecución de la consulta: " . $conexion->error;
        }

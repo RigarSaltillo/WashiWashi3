@@ -2,7 +2,7 @@
 session_start();
 // Verifica si hay una sesión activa
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /WashiWashi/Login.php"); // Redirige a la página de inicio de sesión si no hay sesión activa
+    header("Location: /WashiWashi3/Login.php"); // Redirige a la página de inicio de sesión si no hay sesión activa
     exit();
 }
 ?>
@@ -43,11 +43,11 @@ if (!isset($_SESSION['usuario'])) {
 <div class="menu">
 <nav>
     <ul>
-        <li><a href="">Inicio</a></li>
+        <li><a href="Otras_opcioines.php">Otros</a></li>
         <li><a href="Admin_front.php">Servicios</a></li>
         <li><a href="Agrega_Empleado.php">Alta Empleado</a></li>
         <li><a href="AgregarCliente.php">Alta Cliente</a></li>
-        <li><a href="#">Reporte Servicios</a></li>
+        <li><a href="Detalle_Servicio.php">Detalles Servicios</a></li>
         <li><a href="Procedimentos/Cierre_sesion.php">Cerrar Sesión</a></li> <!-- Nuevo enlace para cerrar sesión -->
     </ul>
 </nav>

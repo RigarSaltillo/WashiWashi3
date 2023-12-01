@@ -3,46 +3,52 @@ try{
     $server="localhost";
     $user="root";
     $pass="";
-    $db="whashiwaship4n";
+    $db="washiwaship4m";
+    $conexion = new mysqli($server, $user, $pass, $db);
+
       
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-     $id_dir=$_POST["id_direccion"];
-     $est_di=$_POST["estado_di"];
-     $muni_di=$_POST["mun_di"];
-     $calle_di=$_POST["calle_di"];
-     $nui_di=$_POST["noi_di"];
-     $nue_di=$_POST["noe_di"];
-     //Las variables de el servicio
-     $id_s=$_POST["id_s"];
      $fecha_s=$_POST["fecha_s"];
-     $Emple_s=$_POST["emple_s"];
-     $dura_s=$_POST["dura_s"]; 
+     $admin_s=$_POST["select_admin"];
+     $dura_s=$_POST["dura_s"];
      $cos_s=$_POST["cos_s"];
-     //Datos del cliente
-     $id_cli_s=$_POST["id_cli_ser"];
+     $cli_s=$_POST["selCliente"];
+     //Direccion 
+     $cd_s=$_POST["codpostal"];
+     $tipoase_s=$_POST["tipoase"];
+     $ase_s=$_POST["ase"];
 
-       $conexion = new mysqli($server, $user, $pass, $db);
        if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
     }
-    $query="INSERT INTO direccion VALUES('$id_dir','$est_di','$muni_di','$calle_di','$nui_di','$nue_di')";
+    $query = "SELECT ID_DIRECXION FROM direccion WHERE COD_POSTAL='$cd_s' AND TIPO_ASENTAMIENTO='$tipoase_s' AND ASENTAMIENTO='$ase_s'";
     $resultado = $conexion->query($query);
-    if ($resultado) {
-            $query="INSERT INTO servicios VALUES('$id_s','$Emple_s','$id_cli_s',$id_dir,'$cos_s','$dura_s','$fecha_s')";
-            $resultado2 = $conexion->query($query);
-            if($resultado2){
-                header("Location: /WashiWashi/Admin_front.php");
-            }else{
-                echo "Error en la ejecución de la insercion: " . $conexion->error;
-            }
+    
+    if ($resultado !== false) {
+        // La consulta se ejecutó correctamente, ahora verificamos si hay resultados
+        if ($resultado->num_rows > 0) {
+            // Hay al menos un resultado, obtenemos el ID_DIRECXION
+            $fila = $resultado->fetch_assoc();
+            $idDireccion = $fila['ID_DIRECXION'];
+          $query2="insert INTO servicios (ID_ADMIN,ID_CLIENTE,ID_DIRECXION,COSTO,DURACION,FECHA_INICIO) VALUES('$admin_s','$cli_s','$idDireccion','$cos_s','$dura_s','$fecha_s')";
+          $resultado2=$conexion->query($query2);
+          if($resultado !== false){
+            header("Location: /WashiWashi3/Admin_front.php");
+        }
+        } else {
+            // No hay resultados, realiza alguna acción aquí
+            echo "No se encontraron resultados para la consulta.";
+        }
     } else {
-        echo "Error en la ejecución de la insercion: " . $conexion->error;
+        // Hubo un error en la consulta
+        echo "Error en la obtención del id de dirección: " . $conexion->error;
     }
+    
           
 
        //Y cheque mi cuarto y cheque mi cama y  nada 
+}
     
-    }
 }catch (Exception $e) {
     // Manejar la excepción
     echo "Error: " . $e->getMessage();

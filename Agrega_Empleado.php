@@ -2,9 +2,11 @@
 session_start();
 // Verifica si hay una sesión activa
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /WashiWashi/Login.php"); // Redirige a la página de inicio de sesión si no hay sesión activa
+    header("Location: /WashiWashi3/Login.php"); // Redirige a la página de inicio de sesión si no hay sesión activa
     exit();
 }
+include __DIR__ . "/Procedimentos/Select_admins.php";
+$admins = obteneradmins();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +44,11 @@ if (!isset($_SESSION['usuario'])) {
 <div class="menu">
 <nav>
     <ul>
-        <li><a href="#">Inicio</a></li>
+        <li><a href="Otras_opcioines.php">Otros</a></li>
         <li><a href="Admin_front.php">Servicios</a></li>
         <li><a href="Agrega_Empleado.php">Alta Empleado</a></li>
         <li><a href="AgregarCliente.php">Alta Cliente</a></li>
-        <li><a href="#">Reporte Servicios</a></li>
+        <li><a href="Detalle_Servicio.php">Detalles Servicios</a></li>
         <li><a href="Procedimentos/Cierre_sesion.php">Cerrar Sesión</a></li> <!-- Nuevo enlace para cerrar sesión -->
     </ul>
 </nav>
@@ -60,14 +62,30 @@ if (!isset($_SESSION['usuario'])) {
                 <br>y el rol que desempeña</h3>
         </div>
         <div>
-            <label for="idEmpleado">Ingresa el id del Empleado</label>
-            <input type="number" id="idEmpleado" name="idEmpleado" required><br>
-        
-            <label for="rol_empleado">Ingresa el rol del Empleado</label>
-            <input type="number" id="rol_empleado" name="rol_empleado" required>
-        
+            <Label for="select_admin" >Selecione al jefe de flotilla asignado</Label>
+            <select name="select_admin" id="select_admin">
+            <option value="0">Selecione</option>
+            <?php
+            foreach ($admins as $admins) {
+                echo "<option value='{$admins['ID_ADMIN']}'>{$admins['NOMBRE']}</option>";
+            }
+            ?>
+            </select>
+            <br>
+
+            <label for="nom_empleado">Nombre del Empleado</label>
+            <input type="text" id="nom_empleado" name="nom_empleado"><br>
+            <label for="Ap_pat">Primer apellido</label>
+            <input type="text" id="Ap_pat" name="Ap_pat" require> <br>
+            <label for="Ap_mat">Segundo apellido</label>
+            <input type="text" id="Ap_mat" name="Ap_mat" require><br>
+            <label for="contra_emp">Ingrese la contaseña</label>
+            <input type="text" id="contra_emp" name="contra_emp">
+
         </div>
+        <button type="submit">Guardar</button>
     </div>
+   
 
     </Form>
 </body>

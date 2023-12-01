@@ -17,6 +17,6 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // Redirige a la página de inicio de sesión
-header("Location: /WashiWashi2/Login.php");
+header("Location: /WashiWashi3/Login.php");
 exit();
 ?>

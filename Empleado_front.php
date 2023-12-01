@@ -3,7 +3,7 @@
 session_start();
 // Verifica si hay una sesión activa
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /WashiWashi2/Login.php"); // Redirige a la página de inicio de sesión si no hay sesión activa
+    header("Location: /WashiWashi3/Login.php"); // Redirige a la página de inicio de sesión si no hay sesión activa
     exit();
 }
 ?>
@@ -52,58 +52,35 @@ if (!isset($_SESSION['usuario'])) {
         <div class="title">
             <label for="">Bienbenido</label>
             <br>
-            <label for="">Calendario de acttividades</label>
+            <label for="">Acttividad</label>
         </div>
-        <div class="actividades">
-        <div class="item">
-        <label for="">Fecha</label><br>
+        <DIV class="item">
+            <form action="Procedimentos/Insert_emple.php" method="post">
+        <label for="fechaActual">Fecha</label><br>
+        <label id="fechaActual"></label>
+        <script>
+        var labelFecha = document.getElementById("fechaActual");
+        var fechaActual = new Date();
+        var fechaFormateada = fechaActual.toISOString().split("T")[0];
+        labelFecha.textContent = fechaFormateada;
+        </script><br>
         <label for="">Las actividades de hoy son:</label>
         <br>
-        <div class="button">
-            <button>Carga Evidencia</button>
-        </div>
-        </div>
-    <div class="item">
-        <label for="">Fecha</label><br>
-        <label for="">Las actividades de mañana son:</label>
+        
+        <label for="">Ingresa tu id</label>
+        <Input type="text" name="emple_id"></Input>
         <br>
-        <div class="button">
-            <button>Carga Evidencia</button>
-        </div>
-        </div>
-    <div class="item">
-        <label for="">Fecha</label><br>
-        <label for="">Las actividades de mañana son:</label>
+        <label for="">Comentarios</label>
+        <input type="text" name="comentario">
         <br>
+        <input type="file" name="foto" id="foto" accept="image/*">
         <div class="button">
-            <button>Carga Evidencia</button>
+            <button type="submit">Carga Evidencia</button>
+            </form>
         </div>
-        </div>
-    <div class="item">
-        <label for="">Fecha</label><br>
-        <label for="">Las actividades de mañana son:</label>
-        <br>
-        <div class="button">
-            <button>Carga Evidencia</button>
-        </div>
-     </div>
-    <div class="item">
-        <label for="">Fecha</label><br>
-        <label for="">Las actividades de mañana son:</label>
-        <br>
-        <div class="button">
-            <button>Carga Evidencia</button>
-        </div>
+        </DIV>
     </div>
-    <div class="item">
-        <label for="">Fecha</label><br>
-        <label for="">Las actividades de mañana son:</label>
-        <br>
-        <div class="button">
-        <button>Carga Evidencia</button>
-    </div>
-    </div>
-    </div>
+    
     </div>
 </body>
 </html>

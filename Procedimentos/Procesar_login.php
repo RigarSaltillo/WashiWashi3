@@ -20,7 +20,7 @@ try {
             if ($resultado->num_rows > 0) {
                 // Datos correctos, el usuario está autenticado
                 $_SESSION['usuario'] = $usuario;
-                header("Location: /WashiWashi2/Admin_front.php");
+                header("Location: /WashiWashi3/Admin_front.php");
             } else {
                 // Datos incorrectos, el usuario no está autenticado
                 echo "Inicio de sesión fallido";
@@ -33,7 +33,7 @@ try {
             if ($resultado->num_rows > 0) {
                 // Datos correctos, el usuario está autenticado
                 $_SESSION['usuario'] = $usuario;
-                header("Location: /WashiWashi2/Empleado_front.php");
+                header("Location: /WashiWashi3/Empleado_front.php");
             } else {
                 // Datos incorrectos, el usuario no está autenticado
                 echo "Inicio de sesión fallido";

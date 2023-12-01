@@ -3,7 +3,7 @@ try{
     $server="localhost";
     $user="root";
     $pass="";
-    $db="whashiwaship4n";
+    $db="washiwaship4m";
       
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
        $id_emple_a =$_POST["id_emple_a"];

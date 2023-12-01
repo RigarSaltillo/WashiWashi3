@@ -31,8 +31,8 @@
         </select>
 </div>
 <div class="">
-    <p>¿No tienes una cuenta?<br>
-         <a href="registro.php">Regístrate aquí</a></p>    <p calss="mensajeError"></p>
+    <p>¿Olvidaste tu contraseña?<br>
+         <a href="registro.php">Recuperala  aquí</a></p>    <p calss="mensajeError"></p>
 </div>
 <div>
     <label>
